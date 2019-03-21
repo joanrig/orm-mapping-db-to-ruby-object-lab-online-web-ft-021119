@@ -109,6 +109,16 @@ class Student
     end
   end
 
+  def self.all_students_in_grade_X(num)
+    sql = <<-SQL
+      SELECT *
+      FROM students
+      WHERE grade = num;
+    SQL
+
+    DB[:conn].execute(sql)
+  end
+
 
   def self.create_table
     sql = <<-SQL
